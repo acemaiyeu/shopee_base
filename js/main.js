@@ -78,3 +78,9 @@ toast({
   type: "success",
   time: 3000,
 });
+toast({
+  title: "Success!",
+  message: "Vui lòng đừng toxic!",
+  type: "success",
+  time: 3000,
+});
