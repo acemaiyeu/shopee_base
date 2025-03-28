@@ -260,6 +260,7 @@
 }
 .auth-form__aside {
   margin-top: 18px;
+  /* padding: 0 12px; */
 }
 .auth-form__policy-text {
   font-size: 1.2rem;
@@ -272,9 +273,10 @@
   color: var(--primary-color);
 }
 .auth-form__controls {
-  margin-top: 80px;
+  margin-top: 12px;
   display: flex;
   justify-content: flex-end;
+  padding: 12px 0;
 }
 .btn--back {
   margin-right: 8px;
@@ -285,7 +287,7 @@
   padding: 16px 36px;
   display: flex;
   justify-content: space-between;
-  margin-top: 24px;
+  /* margin-top: 24px; */
 }
 .auth-form__socials-icon {
   font-size: 1.8rem;
@@ -324,4 +326,8 @@
 }
 .auth-form__help-link--forgot {
   color: var(--primary-color);
+}
+#register-modal,
+#login-modal {
+  display: none;
 }
