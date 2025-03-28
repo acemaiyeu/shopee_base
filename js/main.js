@@ -1,3 +1,4 @@
+let searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
 hiddenFormRegisterAndLogin = () => {
   document.getElementById("register-modal").style.display = "none"; // Hiện form đăng ký
   document.getElementById("login-modal").style.display = "none";
@@ -84,3 +85,33 @@ toast({
   type: "success",
   time: 3000,
 });
+
+// Search hítory
+
+clickSearchHistory = (e) => {
+  document.getElementById("header__search-input").value = e.target.innerText;
+
+  console.log();
+};
+searchSubmit = () => {
+  let searchInput = document.getElementById("header__search-input").value;
+  searchHistory.push(searchInput);
+  localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+  getSearchHistory();
+};
+getSearchHistory = () => {
+  if (searchHistory.length > 0) {
+    let ul_element = document.querySelector(".header__search-history-list");
+    console.log(searchHistory);
+    let data_html = "";
+    searchHistory.forEach((item) => {
+      data_html += `
+                    <li class="header__search-history-item">
+                      <a onclick="clickSearchHistory(event)">${item}</a>
+                    </li>
+                    `;
+    });
+    ul_element.innerHTML = data_html;
+  }
+};
+getSearchHistory();

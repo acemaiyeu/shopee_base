@@ -221,11 +221,27 @@
               </svg>
             </div>
             <div class="header__search">
-              <input
-                type="text"
-                class="header__search-input"
-                placeholder="Nhập để tìm kiếm sản phẩm"
-              />
+              <div class="header__search-input-wrap">
+                <input
+                  type="text"
+                  id="header__search-input"
+                  class="header__search-input"
+                  placeholder="Nhập để tìm kiếm sản phẩm"
+                />
+                <div class="header__search-history">
+                  <h3 class="header__search-history-heading">
+                    Lịch sử tìm kiếm
+                  </h3>
+                  <ul class="header__search-history-list">
+                    <li class="header__search-history-item">
+                      <a onclick="clickSearchHistory(event)">Kem dưỡng da</a>
+                    </li>
+                    <li class="header__search-history-item">
+                      <a onclick="clickSearchHistory(event)">Kem chống năng</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
               <div class="header__search-select">
                 <span class="header__search-label">Trong shop </span
                 ><i class="header__search-icon bi bi-chevron-down"></i>
@@ -242,7 +258,7 @@
                   </li>
                 </ul>
               </div>
-              <button class="header__search-btn">
+              <button class="header__search-btn" onclick="searchSubmit()">
                 <i class="header__search-btn-icon bi bi-search"></i>
               </button>
             </div>
