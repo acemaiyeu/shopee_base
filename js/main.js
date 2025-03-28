@@ -95,6 +95,9 @@ clickSearchHistory = (e) => {
 };
 searchSubmit = () => {
   let searchInput = document.getElementById("header__search-input").value;
+  if (searchHistory.includes(searchInput)) {
+    searchHistory = searchHistory.filter((item) => item !== searchInput);
+  }
   searchHistory.push(searchInput);
   localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
   getSearchHistory();
@@ -102,7 +105,6 @@ searchSubmit = () => {
 getSearchHistory = () => {
   if (searchHistory.length > 0) {
     let ul_element = document.querySelector(".header__search-history-list");
-    console.log(searchHistory);
     let data_html = "";
     searchHistory.forEach((item) => {
       data_html += `
