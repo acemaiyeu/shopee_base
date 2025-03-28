@@ -76,6 +76,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 1.6rem;
 }
 /* .btn:hover {
   background-color: rgba(0, 0, 0, 0.5);
