@@ -420,6 +420,7 @@
   border-radius: 3px;
   /* overflow: hidden; */
   /* display: none; */
+  animation: fadeIn ease-in 0.3s;
 }
 .header__search-option::before {
   content: "";
