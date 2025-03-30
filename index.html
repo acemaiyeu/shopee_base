@@ -258,12 +258,25 @@
                   </li>
                 </ul>
               </div>
-              <button class="header__search-btn" onclick="searchSubmit()">
-                <i class="header__search-btn-icon bi bi-search"></i>
-              </button>
+              <button
+                class="header__search-btn"
+                onclick="searchSubmit()"
+              ></button>
             </div>
             <div class="header__cart">
-              <i class="header__cart-icon bi bi-cart"></i>
+              <div class="header__cart-wrap">
+                <i class="header__cart-icon bi bi-cart"></i>
+                <span class="header__cart-notice">3</span>
+                <div class="header__cart-list">
+                  <!-- Nocart header__cart-list-no-cart -->
+                  <img
+                    src="./assets/img/no_cart.png"
+                    alt=""
+                    class="header__cart-no-cart-img"
+                  />
+                  <p class="header__cart-list-no-cart-msg">Chưa có sản phẩm</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
