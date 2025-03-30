@@ -2,11 +2,12 @@
   width: 100%;
 }
 #toast {
-  width: 30%;
+  width: 20%;
   position: fixed;
   top: 0;
   right: 0;
 }
+
 .toast {
   background-color: white;
   /* border: 1px solid #ccc; */
@@ -30,15 +31,23 @@
 }
 .toast__title {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 16px;
 }
 .toast__msg {
-  font-size: 16px;
+  font-size: 14px;
 }
 .toast__close {
   font-size: 16px;
 }
+@media (max-width: 600px) {
+  #toast {
+    min-width: 60%;
+  }
 
+  .toast__msg {
+    font-size: 10px !important;
+  }
+}
 .toast--success {
   border-color: green;
 }

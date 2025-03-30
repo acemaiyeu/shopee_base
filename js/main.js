@@ -50,10 +50,11 @@ toast = ({ title = "", message = "", type = "info", time = 3000 }) => {
   toast.innerHTML = `
           <div class="toast__icon"><i class="${icon}"></i></div>
           <div class="toast__body">
-            <div class="toast__title">${title}</div>
+            
             <div class="toast__msg">${message}</div>
           </div>
           <i class="toast__close bi bi-dash-circle"></i>`;
+  // <div class="toast__title">${title}</div>
   main.appendChild(toast);
 };
 
@@ -73,18 +74,20 @@ showMessageError = () => {
     time: 3000,
   });
 };
-toast({
-  title: "Success!",
-  message: "Đây là trang Website Test. Dựa vào website SHOPEE!",
-  type: "success",
-  time: 3000,
-});
-toast({
-  title: "Success!",
-  message: "Vui lòng đừng toxic!",
-  type: "success",
-  time: 3000,
-});
+showAc = () => {
+  toast({
+    title: "Success!",
+    message: "Tài khoản: guest@mail.com \n Mật khẩu: 123",
+    type: "success",
+    time: 3000,
+  });
+};
+// toast({
+//   title: "Success!",
+//   message: "Vui lòng đừng toxic!",
+//   type: "success",
+//   time: 3000,
+// });
 
 // Search hítory
 
@@ -117,3 +120,34 @@ getSearchHistory = () => {
   }
 };
 getSearchHistory();
+checkLogin = () => {
+  let user = JSON.parse(localStorage.getItem("user"));
+  if (user) {
+    if (user.email === "guest@gmail.com") {
+      document.getElementById("userNav").classList.remove("--no-active");
+      document.getElementById("registerNav").classList.add("--no-active");
+      document.getElementById("login").classList.add("--no-active");
+    }
+  } else {
+    document.getElementById("userNav").classList.add("--no-active");
+    document.getElementById("registerNav").classList.remove("--no-active");
+    document.getElementById("login").classList.remove("--no-active");
+  }
+};
+checkLogin();
+login = () => {
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+  if (email === "guest@gmail.com" && password === "123") {
+    localStorage.setItem(
+      "user",
+      JSON.stringify({ email: email, time: Date.now() })
+    );
+    checkLogin();
+    hiddenFormRegisterAndLogin();
+  }
+};
+logout = () => {
+  localStorage.removeItem("user");
+  checkLogin();
+};
